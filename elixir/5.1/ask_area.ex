@@ -33,19 +33,19 @@ defmodule AskArea do
     {n1, n2}
   end
 
-  def calculate(_, a, _) when not is_integer(a) do
+  defp calculate(_, a, _) when not is_integer(a) do
     IO.puts "#{a} is not a number"
   end
-  def calculate(_, _, b) when not is_integer(b) do
+  defp calculate(_, _, b) when not is_integer(b) do
     IO.puts "#{b} is not a number"
   end
-  def calculate(:unknown, a, _) do
+  defp calculate(:unknown, a, _) do
     IO.puts "unknown shape #{a}"
   end
-  def calculate(_, a, b) when a <= 0 or b <= 0 do
+  defp calculate(_, a, b) when a <= 0 or b <= 0 do
     IO.puts "Both numbers must be greater than or equal to zero"
   end
-  def calculate(shape, a, b) do
+  defp calculate(shape, a, b) do
     Geom.area(shape, a, b)
   end
 end
